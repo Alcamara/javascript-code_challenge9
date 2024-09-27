@@ -1,6 +1,6 @@
 const { ListItem } = require('../model/to-do')
 
-const list = []
+let list = []
 
 function getListItem(){
     return list
@@ -21,7 +21,7 @@ function addListItem(id, note, isComplete){
 
 function deleteList(id) {
     const prevListLength = list.length
-    const list = list.filter(item => item.id !== id)
+    list = list.filter(item => item.id !== id)
     if (list.length < prevListLength) {
         return 200
     }

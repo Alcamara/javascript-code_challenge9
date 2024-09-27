@@ -26,3 +26,9 @@ app.post("/todos", (req, res) => {
     res.sendStatus(statusCode)
 })
 
+app.delete('/todos/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const statusCode = impl.deleteList(id)
+    res.sendStatus(statusCode)
+})
+
