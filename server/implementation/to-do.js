@@ -1,4 +1,4 @@
-const { listItem } = require('../model/to-do')
+const { ListItem } = require('../model/to-do')
 
 const list = []
 
@@ -8,8 +8,11 @@ function getListItem(){
 
 function addListItem(id, note, isComplete){
     const prevListLength = list.length
-    const item = listItem(id, note, isComplete)
+    const item = new ListItem(id, note, isComplete)
+    list.push(item)
     if(list.length > prevListLength){
+        console.log(list);
+        
         return 200
     }
 
