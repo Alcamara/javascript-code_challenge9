@@ -19,3 +19,8 @@
          note: A string representing the to-do item.
          isComplete: A boolean indicating whether the task is complete.
 
+## Requirement 
+- [NodeJS](https://nodejs.org/en/download/package-manager/current)
+
+## Install
+Run `npm i`
