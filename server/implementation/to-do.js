@@ -19,4 +19,14 @@ function addListItem(id, note, isComplete){
     return 500
 }
 
-module.exports = { addListItem, getListItem }
+function deleteList(id) {
+    const prevListLength = list.length
+    const list = list.filter(item => item.id !== id)
+    if (list.length < prevListLength) {
+        return 200
+    }
+    
+    return 500
+}
+
+module.exports = { addListItem, getListItem, deleteList }
