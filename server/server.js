@@ -11,10 +11,6 @@ app.listen(PORT, () => {
     console.log(`listening on localhost:5000`)
 })
 
-app.get("/", (req, res) => {
-    res.send('hello world')
-})
-
 app.get("/todos", (req, res) => {
     const list = impl.getListItem()
     res.send(list)
@@ -28,7 +24,14 @@ app.post("/todos", (req, res) => {
 
 app.delete('/todos/:id', (req, res) => {
     const id = parseInt(req.params.id)
-    const statusCode = impl.deleteList(id)
+    const statusCode = impl.deleteListItem(id)
     res.sendStatus(statusCode)
+})
+
+app.put('/todos/:id', (req, res) => {
+   const id = parseInt(req.params.id);
+   const { note, isComplete } = req.body;
+   const statusCode = impl.updateListItem(id, note, isComplete);
+   res.sendStatus(statusCode)
 })
 

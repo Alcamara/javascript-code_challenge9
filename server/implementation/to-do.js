@@ -19,7 +19,7 @@ function addListItem(id, note, isComplete){
     return 500
 }
 
-function deleteList(id) {
+function deleteListItem(id) {
     const prevListLength = list.length
     list = list.filter(item => item.id !== id)
     if (list.length < prevListLength) {
@@ -29,4 +29,16 @@ function deleteList(id) {
     return 500
 }
 
-module.exports = { addListItem, getListItem, deleteList }
+function updateListItem(id, note, isComplete) {
+  for(const item of list){
+    if (item.id === id) {
+        item.note = note;
+        item.isComplete = isComplete
+        return 200
+    }
+  } 
+
+  return 500
+}
+
+module.exports = { addListItem, getListItem, deleteListItem, updateListItem }
